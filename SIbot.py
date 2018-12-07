@@ -29,7 +29,7 @@ async def help(ctx):
 
 @bot.command()  # links to where you are now
 async def github(ctx):
-    await ctx.send("Here's the link to this projects Github page: https://github.com/DefieSm1")
+    await ctx.send("Here's the link to this projects Github page: https://github.com/DefieSm1/SIbot")
 
 
 @bot.command()  # Joins a voice channel -> plays a sound file -> leaves
