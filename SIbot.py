@@ -1,7 +1,8 @@
 
 import discord  # needed for this whole thing to work in the first place
-from discord.ext import commands  # needed for commands
+from discord.ext import commands  # like above
 import os  # remove this line, it's only so my bot token stays private or keep it if you want to do the same
+import asyncio  # needed only for sleep function
 
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('///'))  # adds the prefix needed to recognize commands
 
@@ -22,7 +23,8 @@ async def help(ctx):
                    "Here are some of my commands (my prefix is '///'):\n"
                    "///'info'   - shows this exact message.\n"
                    "'///github' - gives a link to my Github.\n"
-                   "'///scare'  - joins a voice channel of choosing then 'scares' them.```")
+                   "'///scare'  - joins a voice channel of choosing then 'scares' them."
+                   "Current version: 0.4```")
 
 
 @bot.command()  # links to where you are now
@@ -35,11 +37,11 @@ async def scare(ctx, channel: discord.VoiceChannel):
     if ctx.voice_client is not None:  # checks if bot is already in a voice channel
         return await ctx.voice_client.move_to(channel)  # moves to chosen channel
 
-    vc = await channel.connect()
-    vc.play(discord.FFmpegPCMAudio('scare.mp3'), after=lambda e: print('done', e))
+    vc = await channel.connect()  # connects to the chosen channel
+    vc.play(discord.FFmpegPCMAudio('scare.mp3'), after=lambda e: print('done', e))  # plays scare.mp3
 
-    while True:  # an infinite loop because of how playing a sound works
-        if not vc.is_playing():  # checks if the bot is playing a sound
-            await vc.disconnect()  # if no, it disconnects form the voice channel
+    await asyncio.sleep(6)  # had to replace a loop with this because of a bug that would make to bot go half-offline
 
-bot.run(os.environ('BOT_TOKEN'))  # if you're not using the os library, replace this with bot.run("YOUR_BOTS_TOKEN")
+    await vc.disconnect()  # disconnects from the voice channel
+
+bot.run(os.environ.get('BOT_TOKEN'))  # if you're not using the os library, replace this with bot.run("YOUR_BOTS_TOKEN")
