@@ -21,7 +21,7 @@ bot.remove_command('help')  # removes the pre-installed command help
 async def help(ctx):
     await ctx.send("```I am a bot created by Defie#9180. The only thing i do is scare people.\n\n"
                    "Here are some of my commands (my prefix is '///'):\n"
-                   "///'info'   - shows this exact message.\n"
+                   "'///help'   - shows this exact message.\n"
                    "'///github' - gives a link to this projects Github page.\n"
                    "'///scare'  - joins a voice channel of choosing then 'scares' them."
                    "Current version: 0.4```")
