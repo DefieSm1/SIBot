@@ -1,3 +1,4 @@
 .idea/*
 __pycache__/*
+src/cogs/__pycache__/*
 *.mp3

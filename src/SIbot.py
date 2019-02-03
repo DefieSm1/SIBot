@@ -1,10 +1,12 @@
 
 import discord  # needed for this whole thing to work in the first place
 from discord.ext import commands  # like above
-from os import environ  # this if only needed for environ.get so the bot token stays private as an env. var.
+from os import environ  # this is only needed for environ.get so the bot token stays private as an env. var.
 from asyncio import sleep  # self explanatory
 
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('///'))  # adds the prefix needed to recognize commands
+
+bot.load_extension("cogs.EggsCog")  # adds in secret or 'easter egg' commands (¬‿¬)
 
 
 @bot.event  # shows the bot's name & ID in the console
@@ -21,12 +23,12 @@ bot.remove_command('help')  # removes the pre-installed command help
 
 @bot.command()  # shows information & all commands for bot & replaces the deleted help command
 async def help(ctx):
-    await ctx.send("```I am a bot created by Defie#9180. The only thing I do is scare people.\n\n"
+    await ctx.send("```I am a bot created by @Defie#9180. The only thing I do is scare people.\n\n"
                    "Here are some of my commands (my prefix is '///'):\n"
                    "'///help'   - shows this exact message.\n"
                    "'///github' - gives a link to this projects Github page.\n"
                    "'///scare'  - joins a voice channel of choosing then 'scares' them.\n"
-                   "Current version: 0.5```")
+                   "Current version: 0.6```")
 
 
 @bot.command()  # links to where you are now
