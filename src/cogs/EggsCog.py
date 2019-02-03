@@ -28,7 +28,6 @@ class EggsCog:
                        "It's the Spanish Inquisition!\n\n"
                        "They be where you least expect.\n")
 
-    async def ``
 
 
 def setup(bot):
