@@ -6,8 +6,7 @@ from asyncio import sleep  # self explanatory
 
 bot = commands.Bot(command_prefix=commands.when_mentioned_or('///'))  # adds the prefix needed to recognize commands
 
-bot.load_extension("cogs.EggsCog")  # adds in secret or 'easter egg' commands (¬‿¬)
-
+bot.load_extension('cogs.eggs')  # adds in secret or 'easter egg' commands (¬‿¬)
 
 @bot.event  # shows the bot's name & ID in the console
 async def on_ready():

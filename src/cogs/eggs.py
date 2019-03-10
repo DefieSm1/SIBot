@@ -7,7 +7,7 @@
 from discord.ext import commands
 
 
-class EggsCog:
+class EggsCog(commands.Cog):
     def __init__(self, bot):
         self.bot = bot
 
@@ -27,7 +27,6 @@ class EggsCog:
                        "And they aim to misdirect -\n"
                        "It's the Spanish Inquisition!\n\n"
                        "They be where you least expect.\n")
-
 
 
 def setup(bot):
